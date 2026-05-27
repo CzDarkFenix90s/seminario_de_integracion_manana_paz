@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Operadores Matematicos
 a = 15
 b = 20
@@ -34,38 +33,3 @@ print("n**=2", n)
 
 # Operadores LOGICOS
 # Operadores de comparacion
-=======
-#Operadores Matematicos
-a = 15
-b = 20
-
-print("Suma")
-print(a,"+",b,"=",a+b)
-print("Resta")
-print(a,"-",b,"=",a-b)
-print("Multiplicacion")
-print(a,"*",b,"=",a*b)
-print("Division")
-print(a,"//",b,"=",a//b)
-print("Division Entera")
-print(a,"/",b,"=",a/b)
-
-print("Modulo")
-print(a,"%",b,"=",a%b)
-print("Operadores de Asignacion")
-print("========================================")
-n=10
-n+5
-print("n+5", n)
-n-=3
-print("n-3", n)
-
-n*=2
-print("n*2", n)
-
-n//=2
-print("n//2", n)
-
-n**=2
-print("n**2", n)
->>>>>>> 51f428ebc607c993c742b2e79ae2c0153a998ec5
