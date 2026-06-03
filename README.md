@@ -1,3 +1,3 @@
 # Materia: seminario de Integracion
 
-## Alumno: Danna Gonzalez
+## Alumno: Alexis Paz
