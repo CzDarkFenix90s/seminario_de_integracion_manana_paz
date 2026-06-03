@@ -1,56 +1,107 @@
-print("Listas")
-print("Crear Listas de Gestión de Transporte")
-vacia = []
-print(vacia)
-unidades = [101, 102, 103, 104, 105, 106, 107]
-print(unidades)
-estaciones = ["Quitumbe", "Recreo", "Magdalena", "Ejido", "Carolina", "Labrador"]
-print(estaciones)
-registro_bus = [42, "Trole", "Ruta C1", True, None, 35.5]
-print(registro_bus)
-rutas_complejas = [1, [10, 20, [30, 40, 50]], 5, 7]
-print(rutas_complejas)
+print('Funciones de python')
+print('Funcion basica')
 
-print("Acceso a los elementos de la lista de estaciones")
-print(estaciones[0])
-print(estaciones[-1])
-print(estaciones[1:4])
-print(estaciones[::-1])
+def iniciar_sistema():
+    print('Sistema de Consultorio Dietético activado')
 
-print("CRUD de una lista de flota")
+iniciar_sistema()
 
-unidades_activas = ['Metro-01', 'Trole-05', 'Bus-22', 'Ecobio-10']
-unidades_activas.append('Metro-02')
-print(unidades_activas)
-unidades_activas.insert(1, 'Trole-01')
-print(unidades_activas)
-unidades_activas.extend(['Bus-50', 'Bus-51'])
-print(unidades_activas)
 
-unidades_activas[0] = "Metro-Q01"
-print(unidades_activas)
+print('Funcion con parametros')
+def registrar_nutricionista(nombre):
+    print(f'Consultorio asignado a: {nombre}, ¿listo para la consulta?')
 
-unidades_activas.remove('Trole-05')
-print(unidades_activas)
-unidad_fuera = unidades_activas.pop()
-print(unidades_activas)
-unidad_fuera = unidades_activas.pop(0)
-print(unidades_activas)
-del unidades_activas[0]
-print(unidades_activas)
+registrar_nutricionista('Danna')
+registrar_nutricionista('Mateo')
+    
+print('Funcion que devuelve valor con return')
+def calcular_ingreso(adultos, niños):
+    return (adultos * 45.00) + (niños * 25.00)
 
-print("Buscar valores en la lista de Buses ")
-print("Bus-50" in unidades_activas)
-print(unidades_activas.index('Bus-50'))
-print(unidades_activas.count('Bus-50'))
+total = calcular_ingreso(10, 5)
+print(f"Recaudación en caja: ${total}")
 
-print("Ordenar registros de Buses")
-codigos_unidades = [302, 105, 600, 34, 9, 100, 15, 22]
-print(codigos_unidades)
-codigos_unidades.sort()
-print(codigos_unidades)
-codigos_unidades.sort(reverse=True)
-print(codigos_unidades)
-lista_ordenada = sorted(codigos_unidades)
-print(codigos_unidades)
-print(lista_ordenada)
+print('Funcion con valor por posicion')
+def registrar_sucursal(nombre, capacidad, sector):
+    print(f'Clínica: {nombre}, Aforo: {capacidad}, Ubicación: {sector}')
+
+registrar_sucursal('Quitumbe', 2500, 'Sur')  
+registrar_sucursal(sector='Norte', nombre='Carcelén', capacidad=1800) 
+
+print('Funcion con valor por defecto')
+def notificar_alerta(paciente, mensaje="En tratamiento", prioridad="Baja"):
+    print(f'Paciente {paciente}: {mensaje} [Prioridad: {prioridad}]')
+
+notificar_alerta('Paciente-01', "Modificación de dieta", "Alta")  
+notificar_alerta("Paciente-15", prioridad="Media")
+notificar_alerta("Paciente-202", "Retraso en cita")
+
+
+print('Funcion parametros posicionales')
+def sumar_calorias(*comidas):
+    print(f"Calorías por comida recibidas: {comidas}")
+    return sum(comidas)
+
+print(sumar_calorias(450, 600, 300))
+print(sumar_calorias(120, 150, 140, 110))
+
+
+print('Funcion parametros combinados con posicional')
+def lista_alimentos(plan, *ingredientes):
+    print(f"Plan: {plan}")
+    for ingrediente in ingredientes:
+        print(f"  - Ingrediente: {ingrediente}")
+    
+lista_alimentos("Dieta Mediterránea", "Pollo", "Aceite de Oliva", "Espinaca", "Almendras")
+
+print('Funcion parametros con clave valor variables')
+def crear_bitacora(**detalles):
+    print("Resumen de consulta:")
+    for clave, valor in detalles.items():
+        print(f" {clave.capitalize()}: {valor}")
+    
+crear_bitacora(paciente="Paciente-Q05", nutricionista="Danna Gonzalez", peso_inicio=75.5, estado="Óptimo")
+
+
+print("Funcion parametros combinacion de todos los tipos")
+def configurar_consultorio(id_consultorio, *box, activo=True, **servicios):
+    print(f"Consultorio ID: {id_consultorio}")
+    print(f"Boxes operativos: {box}")
+    print(f"Estado: {activo}")
+    print(f"Servicios extra: {servicios}")
+
+configurar_consultorio("C-SUR", 1, 2, 3, 4, activo=True, bioimpedancia=True, psicologia=False)
+
+print("Devolver multiples valores")
+def rango_calorico(registros):
+    return min(registros), max(registros)
+
+min_c, max_c = rango_calorico([1500, 1800, 1600, 1450, 2200])
+print(f"Consumo máximo: {max_c}, Consumo mínimo: {min_c}")
+
+
+print("Devolver un diccionario en el caso de muchos valores")
+def analizar_pacientes(pesos):
+    total = sum(pesos)
+    n = len(pesos)
+
+    return {
+        "peso_total": total,
+        "promedio": total/n if n > 0 else 0,
+        "menor_peso": min(pesos) if pesos else 0,
+        "mayor_peso": max(pesos) if pesos else 0,
+        "pacientes_contados": n
+    }
+
+datos_pesos = [62, 75, 88, 54, 91]
+stats = analizar_pacientes(datos_pesos)
+print(f"Peso Total del Grupo: {stats['peso_total']} kg")
+print(f"Promedio de Peso: {stats['promedio']:.2f} kg")
+print(f"Diferencia de Rango: {stats['mayor_peso'] - stats['menor_peso']} kg")
+
+print("Funciones Lambdas")
+iva_suplementos = lambda precio: precio * 1.15 
+descuento_seguimiento = lambda tarifa: tarifa / 2
+
+print(f"Suplemento con IVA: {iva_suplementos(100)}")
+print(f"Tarifa de seguimiento: {descuento_seguimiento(45.00)}")

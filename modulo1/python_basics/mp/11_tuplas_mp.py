@@ -1,40 +1,34 @@
 vacia = ()
-unitaria = ("Unidad-01",)
+unitaria = ("Plan-01",)
 coordenada = (-0.21, -78.50)
-tarifa_info = (0.35, "USD", "Quito")
-registro_pago = ("ID-998", 15.75, "2026-05-08")
-
+consulta_info = (45.00, "USD", "Quito")
+registro_pago = ("ID-998", 45.00, "2026-05-08")
 
 posicion = 10.5, 30.2
 print(type(posicion))
-
 
 print(registro_pago[0])
 print(registro_pago[-1])
 print(registro_pago[1:])
 
+id_paciente, monto, fecha = registro_pago
+print(id_paciente, monto, fecha)
 
-id_ticket, monto, fecha = registro_pago
-print(id_ticket, monto, fecha)
+plan_principal, *planes_secundarios = ("Plan-Keto", "Plan-Vegano", "Plan-Hipertrofia", "Plan-Déficit")
+print(plan_principal)
+print(planes_secundarios)
 
+*evaluacion_previa, diagnostico_final = ("Sobrepeso", "Pre-diabetes", "Resistencia Insulina", "Metabolismo Optimizado")
+print(evaluacion_previa)
+print(diagnostico_final)
 
-unidad_principal, *unidades_secundarias = ("M-01", "M-02", "M-03", "M-04")
-print(unidad_principal)
-print(unidades_secundarias)
+def verificar_cupo(pacientes_agendados, limite_maximo):
+    if pacientes_agendados >= limite_maximo:
+        return False, "Consultorio lleno"
+    return True, "Cupo disponible OK"
 
-*ruta_previa, destino_final = ("Terminal S", "Parada 1", "Parada 2", "Terminal N")
-print(ruta_previa)
-print(destino_final)
-
-
-def verificar_saldo(saldo, costo):
-    if saldo < costo:
-        return False, "Saldo insuficiente"
-    return True, "Saldo OK"
-
-estado, msg = verificar_saldo(0.10, 0.35)
+estado, msg = verificar_cupo(160, 160)
 print(f"Estado: {estado}, Mensaje: {msg}")
 
-
-red_transporte = {(-0.21, -78.50): "Estación Sur", (0.00, -78.45): "Estación Central"}
-print(red_transporte[(-0.21, -78.50)])
+red_consultorios = {(-0.21, -78.50): "Sucursal Sur", (0.00, -78.45): "Sucursal Central"}
+print(red_consultorios[(-0.21, -78.50)])

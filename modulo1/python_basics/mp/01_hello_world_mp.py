@@ -1,16 +1,21 @@
-print("Sistema de Gestión de Transporte Público")
+print("Sistema de Gestión de Consultorio Dietético")
 
-capacidad = 160
-unidad = "Bus Articulado C-20"
+# Variables adaptadas
+capacidad = 160  # Cupos disponibles al mes
+unidad = "Plan Nutricional Avanzado"  # Nombre del servicio/programa
 
-print(f"Vehículo: {unidad} | Capacidad: {capacidad} pasajeros.")
-print("Unidad:", unidad, "Capacidad Máxima:", capacidad)
-id_ruta = 450198
+print(f"Servicio: {unidad} | Capacidad: {capacidad} pacientes.")
+print("Programa:", unidad, "Capacidad Máxima:", capacidad)
+
+id_ruta = 450198  # Se convierte en el ID de la Consulta o Paciente
 print("El {} tiene una capacidad de {} personas.".format(unidad, capacidad))
 print(unidad, capacidad, id_ruta, sep=" - ")
-print(unidad, end= " | ")
-print(capacidad, end= " | ")
-print(id_ruta, end= " | ")
 
-print(f"\nTarifa: {0.350:.2f}")
-print(f"Validaciones anuales: {12550800:,}")
+# Impresión en la misma línea con separadores
+print(unidad, end=" | ")
+print(capacidad, end=" | ")
+print(id_ruta, end=" | ")
+
+# Formatos de números (Tarifa de consulta y citas anuales)
+print(f"\nCosto de Consulta: ${55.500:.2f}")
+print(f"Consultas anuales atendidas: {12550800:,}")

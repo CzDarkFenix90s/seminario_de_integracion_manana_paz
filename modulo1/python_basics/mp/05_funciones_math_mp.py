@@ -1,8 +1,8 @@
 import math
 
-tarifa_fraccionada = 0.3542
-distancia_km = 12.8
-print(math.sqrt(distancia_km))
-print(math.ceil(tarifa_fraccionada))
-print(math.floor(tarifa_fraccionada))
-print(round(distancia_km, 1))
+indice_masa_corporal = 0.3542
+porcentaje_grasa = 12.8
+print(math.sqrt(porcentaje_grasa))
+print(math.ceil(indice_masa_corporal))
+print(math.floor(indice_masa_corporal))
+print(round(porcentaje_grasa, 1))

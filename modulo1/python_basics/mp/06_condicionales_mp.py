@@ -1,53 +1,53 @@
 print("condicionales simples")
-capacidad_actual = input("Cuántos pasajeros hay en la unidad? ")
-if(int(capacidad_actual) >= 160):
-    print("Unidad al límite de capacidad")
+pacientes_hoy = input("¿Cuántos pacientes hay agendados hoy? ")
+if int(pacientes_hoy) >= 160:
+    print("Consultorio al límite de capacidad")
 
 print("condicionales dos caminos")
-saldo_tarjeta = input("¿Cuál es el saldo de su tarjeta? ")
-if(float(saldo_tarjeta) >= 0.35):
+saldo_paciente = input("¿Cuál es el saldo a favor del paciente? ")
+if float(saldo_paciente) >= 0.35:
     print("Acceso concedido")
 else:
     print("Saldo insuficiente")
 
 print("condicionales multiples")
-distancia = input("Cuántos kilómetros recorrió la unidad? ")
-distancia_val = int(distancia)
-if(distancia_val >= 100):
-    print("Requiere mantenimiento preventivo")
-elif(distancia_val >= 50):
-    print("Ruta de larga distancia completada")
-elif(distancia_val >= 10):
-    print("Ruta urbana estándar completada")
+calorias = input("¿Cuántas calorías consumió el paciente? ")
+calorias_val = int(calorias)
+if calorias_val >= 1000:
+    print("Requiere plan de déficit calórico estricto")
+elif calorias_val >= 500:
+    print("Plan de mantenimiento completado")
+elif calorias_val >= 10:
+    print("Plan de déficit leve completado")
 else:
-    print("Movimiento técnico o corto")
+    print("Ayuno prolongado detectado")
 
 print("condicionales if anidados")
-unidad_disponible = True
-combustible = 40
-tipo_servicio = 'Expreso'
-if(unidad_disponible):
-    if(combustible >= 30):
-        if(tipo_servicio == 'Expreso'):
-            print("Unidad asignada a ruta Expreso, despacho confirmado")
+nutricionista_disponible = True
+tiempo_consulta = 40
+tipo_plan = 'Personalizado'
+if nutricionista_disponible:
+    if tiempo_consulta >= 30:
+        if tipo_plan == 'Personalizado':
+            print("Especialista asignado a plan Personalizado, cita confirmada")
         else:
-            print("Servicio regular disponible")
+            print("Consulta de seguimiento regular disponible")
     else:
-        print("Combustible insuficiente para la ruta")
+        print("Tiempo insuficiente para la consulta")
 else:    
-    print("No hay unidades disponibles en terminal")
+    print("No hay nutricionistas disponibles en la clínica")
 
 print("Calculo de subsidio:")
-antiguedad_unidad = input("Ingrese años de antigüedad del vehículo: ")
-if(int(antiguedad_unidad) > 5):
-    estado_mecanico = input("Ingrese calificación técnica (1-10): ")
-    if(int(estado_mecanico) >= 7):
-        costo_operativo = input("Ingrese costo operativo mensual: ")
-        if(int(costo_operativo) < 5000):
-            print("Subsidio asignado: $500")
-            print(f"Presupuesto final: {int(costo_operativo) + 500}")
-        if(int(costo_operativo) >= 5000):
-            print("Subsidio asignado: $1000")
-            print(f"Presupuesto final: {int(costo_operativo) + 1000}")
+antiguedad_paciente = input("Ingrese meses de antigüedad del paciente: ")
+if int(antiguedad_paciente) > 5:
+    apego_plan = input("Ingrese calificación de apego al plan (1-10): ")
+    if int(apego_plan) >= 7:
+        costo_tratamiento = input("Ingrese costo del tratamiento mensual: ")
+        if int(costo_tratamiento) < 5000:
+            print("Descuento asignado: $500")
+            print(f"Costo final: {int(costo_tratamiento) - 500}")
+        if int(costo_tratamiento) >= 5000:
+            print("Descuento asignado: $1000")
+            print(f"Costo final: {int(costo_tratamiento) - 1000}")
     else:
-        print("Vehículo no apto para subsidio por estado técnico")
+        print("Paciente no apto para beneficio por bajo apego técnico")
