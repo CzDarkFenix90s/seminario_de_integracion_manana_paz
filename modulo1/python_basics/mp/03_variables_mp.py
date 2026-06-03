@@ -1,49 +1,50 @@
-unidad_id = 'Metro-Q01'
-pasajeros_actuales = 450
-tarifa_estandar = 0.45
-sistema_operativo = True
-registro_incidencias = None
+id_paciente = 'PAC-Q01'
+calorias_diarias = 1850
+precio_consulta = 45.50
+consultorio_abierto = True
+historial_alergias = None
 
-print(type(unidad_id))
-print(type(pasajeros_actuales))
-print(type(tarifa_estandar))
-print(type(sistema_operativo))
-print(type(registro_incidencias))
+print(type(id_paciente))
+print(type(calorias_diarias))
+print(type(precio_consulta))
+print(type(consultorio_abierto))
+print(type(historial_alergias))
 
-a, b, c = 10, 20, 30
-print(a)
-print(b)
-print(c)
+carbs, pro, fat = 150, 90, 60
+print(carbs)
+print(pro)
+print(fat)
 
-a = b = c = 0
-print(a)
-print(b)
-print(c)
+carbs = pro = fat = 0
+print(carbs)
+print(pro)
+print(fat)
 
-codigo_unidad, codigo_respaldo = 101, 202
-print(codigo_unidad, codigo_respaldo)
-codigo_unidad, codigo_respaldo = codigo_respaldo, codigo_unidad
-print(codigo_unidad, codigo_respaldo)
+nutri_sala_1, nutri_sala_2 = 101, 202
+print(nutri_sala_1, nutri_sala_2)
+nutri_sala_1, nutri_sala_2 = nutri_sala_2, nutri_sala_1
+print(nutri_sala_1, nutri_sala_2)
 
-parada_norte = "Terminal Carcelén"
-ParadaNorte = "Terminal Carcelén"
-AFORO_MAXIMO = 1500
-_token_seguridad = "XY-99"
+clinica_norte = "Sucursal Norte"
+ClinicaNorte = "Sucursal Norte"
+AFORO_MAXIMO_CLINICA = 50
+_token_expediente = "NUTRI-99"
 
-id_ruta = 505
-saldo_negativo = -2
-presupuesto_infraestructura = 2_500_000_000
-combinaciones_red = 5 ** 80
-print(id_ruta)
-print(saldo_negativo)
-print(presupuesto_infraestructura)
-print(combinaciones_red)
+id_dieta = 505
+balance_calorico_deficit = -500
+presupuesto_clinica = 1_500_000
+combinaciones_menus = 3 ** 15
+print(id_dieta)
+print(balance_calorico_deficit)
+print(presupuesto_clinica)
+print(combinaciones_menus)
 
-sector_bin = 0b1111
-sector_oct = 0o25
-sector_hex = 0xAC
-print(sector_bin, sector_oct, sector_hex)
+codigo_bin = 0b1111
+codigo_oct = 0o25
+codigo_hex = 0xAC
+print(codigo_bin, codigo_oct, codigo_hex)
 
-print(bin(1024))
-print(oct(1024))
-print(hex(1024))
+id_analisis = 1024
+print(bin(id_analisis))
+print(oct(id_analisis))
+print(hex(id_analisis))

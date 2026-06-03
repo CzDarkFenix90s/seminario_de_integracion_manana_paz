@@ -1,23 +1,23 @@
 print("Match Case")
-accion = input("Acción de la unidad (despachar/estacionar/reparar): ")
+accion = input("Acción de la consulta (atender/agendar/cancelar): ")
 match accion:
-    case "despachar":
-        print("Unidad saliendo a ruta asignada")
-    case "estacionar":
-        print("Unidad ingresando a zona de parqueo")
-    case "reparar":
-        print("Unidad enviada a talleres técnicos")
+    case "atender":
+        print("Paciente ingresando a evaluación nutricional")
+    case "agendar":
+        print("Buscando cupos disponibles en el calendario")
+    case "cancelar":
+        print("Liberando horario y notificando a lista de espera")
     case _:
         print(f"Estado '{accion}' no registrado en el sistema")
 
 print("match condiciones")
-capacidad_bus = 160
-match capacidad_bus:
+calorias_dieta = 160
+match calorias_dieta:
     case n if n < 0:
-        print(f"Error: La capacidad {n} no puede ser negativa")
+        print(f"Error: El consumo de {n} calorías no puede ser negativo")
     case 0:
-        print("La unidad está fuera de servicio o vacía")
+        print("El paciente se encuentra en ayuno total")
     case n if n % 2 != 0:
-        print(f"Capacidad {n} es un número de asientos impar")
+        print(f"La meta de {n} calorías es un número impar")
     case n:
-        print(f"Capacidad de {n} pasajeros es estándar y par")
+        print(f"La meta de {n} calorías es un valor estándar y par")

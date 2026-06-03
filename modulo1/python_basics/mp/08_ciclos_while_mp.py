@@ -1,52 +1,52 @@
-contador_unidades = 1
-while (contador_unidades <= 5):
-    print(f"Despachando unidad N°: {contador_unidades}")
-    contador_unidades += 1
+contador_pacientes = 1
+while contador_pacientes <= 5:
+    print(f"Atendiendo paciente N°: {contador_pacientes}")
+    contador_pacientes += 1
 
 
 print("control del ciclo")
 print("continue")
 i = 1
-while (i <= 5):
+while i <= 5:
     i += 1
     if i == 2:
         continue
-    print(f"Unidad en ruta: {i}")
+    print(f"Paciente en consulta: {i}")
 
 print("break")
 i = 1
-while (i <= 5):
+while i <= 5:
     if i == 3:
         break
-    print(f"Revisando sensor de parada {i}")
+    print(f"Revisando expediente del paciente {i}")
     i += 1
 
-id_unidad = int(input("Ingrese ID de la unidad (0 para salir): "))
-while id_unidad != 0:
-    print("Monitoreando unidad:", id_unidad)
-    id_unidad = int(input("Ingrese ID de la unidad (0 para salir): "))
+id_paciente = int(input("Ingrese ID del paciente (0 para salir): "))
+while id_paciente != 0:
+    print("Monitoreando evolución del paciente:", id_paciente)
+    id_paciente = int(input("Ingrese ID del paciente (0 para salir): "))
 
-contador_vueltas = 1
-while (contador_vueltas <= 5):
-    print(f"Vuelta de recorrido: {contador_vueltas}")
-    contador_vueltas += 1
+contador_citas = 1
+while contador_citas <= 5:
+    print(f"Cita de seguimiento: {contador_citas}")
+    contador_citas += 1
 else:
-    print("Jornada de la unidad finalizada")
+    print("Jornada del consultorio finalizada")
 
 
-contador_pasajeros = 1
+contador_calorias = 1
 while True:
-    print(f"Pasajero N° {contador_pasajeros} ingresó")
-    contador_pasajeros += 1
-    if not (contador_pasajeros <= 5):
+    print(f"Caloría N° {contador_calorias} registrada")
+    contador_calorias += 1
+    if not (contador_calorias <= 5):
         break
 
 
 codigo_acceso = "450"
 while True:
-    entrada = input("Ingrese código de validador: ")
+    entrada = input("Ingrese código de nutricionista: ")
     if entrada == codigo_acceso:
-        print("Validador activado - Acceso permitido")
+        print("Báscula inteligente activada - Acceso permitido")
         break
     else:
         print("Código incorrecto - Intente de nuevo")

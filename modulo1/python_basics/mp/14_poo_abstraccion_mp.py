@@ -1,65 +1,64 @@
 from abc import ABC, abstractmethod
 
-class VehiculoTransporte(ABC):
-    def __init__(self, codigo, capacidad, color="blanco"):
+class PlanNutricional(ABC):
+    def __init__(self, codigo, capacidad, modalidad="Presencial"):
         self.codigo = codigo
         self.capacidad = capacidad
-        self.color = color
+        self.modalidad = modality = modalidad
 
     @abstractmethod
-    def calcular_tarifa(self) -> float:
+    def calcular_costo(self) -> float:
         pass
 
     @abstractmethod
-    def obtener_autonomia(self) -> str:
+    def obtener_duracion(self) -> str:
         pass
 
     def describir(self) -> str:
-        return (f"{self.__class__.__name__} [{self.codigo}] {self.color}: "
-                f"Tarifa=${self.calcular_tarifa():.2f}, Autonomía={self.obtener_autonomia()}")
+        return (f"{self.__class__.__name__} [{self.codigo}] ({self.modalidad}): "
+                f"Costo=${self.calcular_costo():.2f}, Duración={self.obtener_duracion()}")
 
-class Metro(VehiculoTransporte):
-    def __init__(self, codigo, capacidad, vagones, color="blanco"):
-        super().__init__(codigo, capacidad, color)
-        self.vagones = vagones
+class PlanKeto(PlanNutricional):
+    def __init__(self, codigo, capacidad, dias_seguimiento, modalidad="Presencial"):
+        super().__init__(codigo, capacidad, modalidad)
+        self.dias_seguimiento = dias_seguimiento
 
-    def calcular_tarifa(self):
-        return 0.45
+    def calcular_costo(self):
+        return 45.00
 
-    def obtener_autonomia(self):
-        return "Eléctrica (Cateneria)"
+    def obtener_duracion(self):
+        return f"{self.dias_seguimiento} días de cetosis guiada"
 
-class BusArticulado(VehiculoTransporte):
-    def __init__(self, codigo, capacidad, combustible_litros, color="blanco"):
-        super().__init__(codigo, capacidad, color)
-        self.combustible_litros = combustible_litros
+class PlanVegano(PlanNutricional):
+    def __init__(self, codigo, capacidad, suplementos_incluidos, modalidad="Presencial"):
+        super().__init__(codigo, capacidad, modalidad)
+        self.suplementos_incluidos = suplementos_incluidos
 
-    def calcular_tarifa(self):
-        return 0.35
+    def calcular_costo(self):
+        return 35.00
 
-    def obtener_autonomia(self):
-        autonomia_km = self.combustible_litros * 2.5
-        return f"{autonomia_km:.1f} km"
+    def obtener_duracion(self):
+        return f"Mensual ({self.suplementos_incluidos} suplementos controlados)"
 
-class Teleferico(VehiculoTransporte):
-    def __init__(self, codigo, capacidad, longitud_cable, color="blanco"):
-        super().__init__(codigo, capacidad, color)
-        self.longitud_cable = longitud_cable
+class PlanDeportista(PlanNutricional):
+    def __init__(self, codigo, capacidad, sesiones_antropometria, modalidad="Presencial"):
+        super().__init__(codigo, capacidad, modalidad)
+        self.sesiones_antropometria = sesiones_antropometria
 
-    def calcular_tarifa(self):
-        return 0.60
+    def calcular_costo(self):
+        return 60.00
 
-    def obtener_autonomia(self):
-        return "Sistema de cables por motor central"
+    def obtener_duracion(self):
+        return f"Trimestral con {self.sesiones_antropometria} mediciones de pliegues"
 
-flota = [
-    Metro("TREN-01", 1500, 6, "azul"),
-    BusArticulado("BRT-45", 160, 200, "rojo"),
-    Teleferico("TEL-09", 10, 2500, "blanco")
+programas_activos = [
+    PlanKeto("KETO-01", 1500, 30, "Online"),
+    PlanVegano("VEG-45", 160, 3, "Presencial"),
+    PlanDeportista("DEP-09", 10, 6, "Presencial")
 ]
 
-for vehiculo in flota:
-    print(vehiculo.describir())
+for plan in programas_activos:
+    print(plan.describir())
 
-capacidad_total = sum(v.capacidad for v in flota)
-print(f"Capacidad total del sistema: {capacidad_total} pasajeros")
+capacidad_total = sum(p.capacidad for p in programas_activos)
+print(f"Capacidad total del consultorio: {capacidad_total} pacientes")

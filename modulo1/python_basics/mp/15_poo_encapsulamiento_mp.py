@@ -1,10 +1,10 @@
-class ValidadorPasajes:
-    def __init__(self, unidad_id, saldo_inicial=0):
-        self.unidad_id = unidad_id
+class ValidadorConsultas:
+    def __init__(self, consultorio_id, saldo_inicial=0):
+        self.consultorio_id = consultorio_id
         self.__recaudacion = saldo_inicial
-        self.__historial_validaciones = []
+        self.__historial_consultas = []
         self.__estado_activo = True
-        self.__registrar_evento(f"Validador activado en {unidad_id} con base de ${saldo_inicial}")
+        self.__registrar_evento(f"Sistema activado en {consultorio_id} con base de ${saldo_inicial}")
 
     @property
     def recaudacion(self):
@@ -16,42 +16,42 @@ class ValidadorPasajes:
 
     @property
     def historial(self):
-        return list(self.__historial_validaciones)
+        return list(self.__historial_consultas)
 
-    def validar_entrada(self, tarifa):
-        if tarifa <= 0:
-            raise ValueError("La tarifa no puede ser nula o negativa")
-        self.__recaudacion += tarifa
-        self.__registrar_evento(f"Validación exitosa: +${tarifa}")
+    def registrar_consulta(self, costo):
+        if costo <= 0:
+            raise ValueError("El costo de la consulta no puede ser nulo o negativo")
+        self.__recaudacion += costo
+        self.__registrar_evento(f"Consulta cobrada: +${costo}")
         return self
 
-    def anular_pasaje(self, tarifa):
-        if tarifa <= 0:
+    def anular_consulta(self, costo):
+        if costo <= 0:
             raise ValueError("La cantidad a anular debe ser positiva")
-        if tarifa > self.__recaudacion:
+        if costo > self.__recaudacion:
             raise ValueError(f"No se puede anular: excede recaudación actual (${self.__recaudacion})")
-        self.__recaudacion -= tarifa
-        self.__registrar_evento(f"Anulación: -${tarifa}")
+        self.__recaudacion -= costo
+        self.__registrar_evento(f"Anulación / Devolución: -${costo}")
         return self
 
     def transferir_recaudacion(self, caja_central, monto):
-        self.anular_pasaje(monto)
-        caja_central.validar_entrada(monto)
-        self.__registrar_evento(f"Transferencia a {caja_central.unidad_id}: -${monto}")
+        self.anular_consulta(monto)
+        caja_central.registrar_consulta(monto)
+        self.__registrar_evento(f"Transferencia de fondos a {caja_central.consultorio_id}: -${monto}")
         return self
 
     def __registrar_evento(self, operacion):
         from datetime import datetime
         hora = datetime.now().strftime("%H:%M:%S")
-        self.__historial_validaciones.append(f"[{hora}] {operacion}")
+        self.__historial_consultas.append(f"[{hora}] {operacion}")
 
     def __str__(self):
-        return f"Validador({self.unidad_id}: ${self.__recaudacion:.2f})"
+        return f"Consultorio({self.consultorio_id}: ${self.__recaudacion:.2f})"
 
-v1 = ValidadorPasajes("Metro-Q01", 50.0)
-v2 = ValidadorPasajes("Estación-Central", 1000.0)
+v1 = ValidadorConsultas("Nutri-Sur01", 50.0)
+v2 = ValidadorConsultas("Caja-Central", 1000.0)
 
-v1.validar_entrada(0.45).validar_entrada(0.35)
+v1.registrar_consulta(45.00).registrar_consulta(35.00)
 v1.transferir_recaudacion(v2, 25.0)
 
 print(v1)
